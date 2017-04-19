@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "LoopBack user management example",
   "main": "server/server.js",
+  "engines": {
+    "node": "^0.10.x"
+  },
   "scripts": {
     "pretest": "jshint .",
     "start": "node .",
