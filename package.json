@@ -15,11 +15,12 @@
     "body-parser": "^1.10.0",
     "compression": "^1.0.3",
     "cors": "^2.8.1",
-    "strong-error-handler": "^1.1.0",
     "loopback": "^3.0.0",
     "loopback-boot": "^2.4.0",
     "loopback-component-explorer": "^2.1.0",
-    "serve-favicon": "^2.0.1"
+    "sendgrid": "^5.0.0",
+    "serve-favicon": "^2.0.1",
+    "strong-error-handler": "^1.1.0"
   },
   "devDependencies": {
     "jshint": "^2.5.6",
