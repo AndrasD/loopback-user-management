@@ -6,36 +6,39 @@
 var config = require('../../server/config.json');
 var path = require('path');
 
+var helper = require('sendgrid').mail;
+var from_email = new helper.Email('test@example.com');
+var subject = 'Hello World from the SendGrid Node.js Library!';
+var content = new helper.Content('text/plain', 'Hello, Email!');
+var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+
 module.exports = function(User) {
   //send verification email after registration
   User.afterRemote('create', function(context, user, next) {
     console.log('> user.afterRemote triggered');
+    
+    var to_email = new helper.Email(user.email);
+    var mail = new helper.Mail(from_email, subject, to_email, content);
+    var request = sg.emptyRequest({
+      method: 'POST',
+      path: '/v3/mail/send',
+      body: mail.toJSON(),
+    });
 
-    var options = {
-      type: 'email',
-      to: user.email,
-      from: 'noreply@loopback.com',
-      subject: 'Thanks for registering.',
-      template: path.resolve(__dirname, '../../server/views/verify.ejs'),
-      redirect: '/verified',
-      user: user
-    };
+    sg.API(request, function(error, response) {
+      console.log(response.statusCode);
+      console.log(response.body);
+      console.log(response.headers);
+    });
 
-    user.verify(options, function(err, response) {
-      if (err) {
-        User.deleteById(user.id);
-        return next(err);
-      }
+    console.log('> verification email sent:', response);
 
-      console.log('> verification email sent:', response);
-
-      context.res.render('response', {
-        title: 'Signed up successfully',
-        content: 'Please check your email and click on the verification link ' +
-            'before logging in.',
-        redirectTo: '/',
-        redirectToLinkText: 'Log in'
-      });
+    context.res.render('response', {
+      title: 'Signed up successfully',
+      content: 'Please check your email and click on the verification link ' +
+          'before logging in.',
+      redirectTo: '/',
+      redirectToLinkText: 'Log in'
     });
   });
 
