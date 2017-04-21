@@ -8,15 +8,15 @@
     "connector": "mail",
     "transports": [
       {
-        "type": "SMTP",
+        "type": "smtp",
         "host": "smtp.gmail.com",
         "secure": true,
         "port": 465,
         "tls": {
-          "rejectUnauthorized": false
+          "rejectUnauthorized": true
         },
         "auth": {
-          "user": "andras.dallos@gmail.com",
+          "user": "andras.dallos",
           "pass": "Xsw21qay"
         }
       }
