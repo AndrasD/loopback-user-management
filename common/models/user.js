@@ -17,7 +17,7 @@ module.exports = function (User) {
 
     from_email = new helper.Email("sixis@sixis.hu");
     to_email = new helper.Email(user.email);
-    subject = "Sending with SendGrid is Fun";
+    subject = "Thanks for registering!";
     content = new helper.Content("text/plain", "and easy to do anywhere, even with Node.js");
     mail = new helper.Mail(from_email, subject, to_email, content);
 
@@ -48,8 +48,7 @@ module.exports = function (User) {
   //send password reset link when requested
   User.on('resetPasswordRequest', function (info) {
     var url = 'http://' + config.host + ':' + config.port + '/reset-password';
-    var html = 'Click <a href="' + url + '?access_token=' +
-      info.accessToken.id + '">here</a> to reset your password';
+    var html = 'Click <a href="' + url + '?access_token=' + info.accessToken.id + '">here</a> to reset your password';
 
     User.app.models.Email.send({
       to: info.email,
