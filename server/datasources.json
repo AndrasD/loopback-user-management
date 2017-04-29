@@ -9,15 +9,15 @@
     "transports": [
       {
         "type": "smtp",
-        "host": "smtp.gmail.com",
+        "host": "smtp.sendgrid.net",
         "secure": true,
         "port": 465,
         "tls": {
           "rejectUnauthorized": true
         },
         "auth": {
-          "user": "andras.dallos",
-          "pass": "Xsw21qay"
+          "user": "app66951088@heroku.com",
+          "pass": "jaytvcdq8985"
         }
       }
     ]
