@@ -8,16 +8,16 @@
     "connector": "mail",
     "transports": [
       {
-        "type": "SMTP",
-        "host": "smtp.gmail.com",
+        "type": "smtp",
+        "host": "smtp.sendgrid.net",
         "secure": true,
         "port": 465,
         "tls": {
-          "rejectUnauthorized": false
+          "rejectUnauthorized": true
         },
         "auth": {
-          "user": "andras.dallos@gmail.com",
-          "pass": "Xsw21qay"
+          "user": "app66951088@heroku.com",
+          "pass": "jaytvcdq8985"
         }
       }
     ]
