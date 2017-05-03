@@ -31,8 +31,7 @@ module.exports = function(User) {
 
       context.res.render('response', {
         title: 'Signed up successfully',
-        content: 'Please check your email and click on the verification link ' +
-            'before logging in.',
+        content: 'Please check your email and click on the verification link before logging in.',
         redirectTo: '/',
         redirectToLinkText: 'Log in'
       });
@@ -42,8 +41,7 @@ module.exports = function(User) {
   //send password reset link when requested
   User.on('resetPasswordRequest', function(info) {
     var url = 'http://' + config.host + ':' + config.port + '/reset-password';
-    var html = 'Click <a href="' + url + '?access_token=' +
-        info.accessToken.id + '">here</a> to reset your password';
+    var html = 'Click <a href="' + url + '?access_token=' + info.accessToken.id + '">here</a> to reset your password';
 
     User.app.models.Email.send({
       to: info.email,
