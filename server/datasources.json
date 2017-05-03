@@ -3,6 +3,15 @@
     "name": "db",
     "connector": "memory"
   },
+  "mysqlDs": {
+    "name": "mysqlDs",
+    "connector": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "user": "andras",
+    "password": "Bandur_1963",
+    "database": "sixishu_track"
+  },
   "emailDs": {
     "name": "emailDs",
     "connector": "mail",
