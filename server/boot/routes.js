@@ -92,7 +92,7 @@ module.exports = function(app) {
     User.findById(req.accessToken.userId, function(err, user) {
       if (err) return res.sendStatus(404);
       user.updateAttribute('password', req.body.password, function(err, user) {
-      if (err) return res.sendStatus(404);
+        if (err) return res.sendStatus(404);
         console.log('> password reset processed successfully');
         res.render('response', {
           title: 'Password reset success',

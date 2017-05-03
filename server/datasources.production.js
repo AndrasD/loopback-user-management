@@ -1,8 +1,12 @@
 module.exports = {
   db: {
     name: "db",
+    connector: "memory"
+  },
+  mysqlDs: {
+    name: "mysqlDs",
     connector: "mysql",
-    url: "mysql://b0ca368cbc0160:6ba3bc42@us-cdbr-iron-east-03.cleardb.net/heroku_5534148d103febe?reconnect=true"
+    url: process.env.CLEARDB_DATABASE_URL
   },
   emailDs: {
     name: "emailDs",
