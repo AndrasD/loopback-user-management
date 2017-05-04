@@ -36,5 +36,9 @@
     "options": {
       "emailVerificationRequired": false
     }
+  },
+  "accessToken": {
+    "dataSource": "mysqlDs",
+    "public": true
   }
 }

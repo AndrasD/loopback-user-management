@@ -12,6 +12,7 @@ module.exports = function(User) {
     console.log('> user.afterRemote triggered');
 
     var options = {
+      host: 'https://' + process.env.APPLICATION_HOST + ((app.get('port') === '80') ? '' : (':' + app.get('port'))) + app.get('restApiRoot'),
       type: 'email',
       to: user.email,
       from: 'noreply@sixis.hu',
@@ -36,7 +37,7 @@ module.exports = function(User) {
         redirectToLinkText: 'Log in'
       });
     });
-    
+
   });
 
   //send password reset link when requested
