@@ -36,6 +36,7 @@ module.exports = function(User) {
         redirectToLinkText: 'Log in'
       });
     });
+    
   });
 
   //send password reset link when requested
